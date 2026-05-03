@@ -9,12 +9,11 @@ import { CiSearch } from "react-icons/ci";
 import { NavLink } from 'react-router';
 
 
-
 const Navbar = () => {
 
     const navItems = [
         { path: '/', icon: <CiGlobe />, label: 'Explore' },
-        { path: '/upcomingProjects', icon: <CiCalendar />, label: 'Upcoming Projects' },
+        { path: '/scheduled', icon: <CiCalendar />, label: 'Scheduled' },
         { path: '/community', icon: <MdGroups />, label: 'Community' },
         { path: '/category', icon: <BiCategory />, label: 'Category' },
         { path: '/searchPage', icon: <CiSearch />, label: 'Search' }
@@ -32,36 +31,57 @@ const Navbar = () => {
                 </a>
             </div>
 
-
+            {/* Second half of Navbar */}
             <div className="flex-none">
-
                 <div className="flex items-center gap-3">
 
                     {/* Nav Menu */}
                     <div className='flex gap-3 items-center'>
-                        {
-                            navItems.map(item =>
-                                <NavLink
-                                    key={item.path}
-                                    to={item.path}
-                                    className={({ isActive }) =>
-                                        `${isActive ? 'text-white' : 'text-gray-400'} text-2xl flex items-center gap-1`
-                                    }
-                                >
-                                    {({ isActive }) => (
-                                        <>
-                                            <span>{item.icon}</span>
-                                            {isActive && <span className='text-xl'>{item.label}</span>}
-                                        </>
-                                    )}
-                                </NavLink>
-                            )
-                        }
+                        <div className='hidden md:block'>
+                            <div className='flex gap-3 items-center'>
+                                {
+                                    navItems.map(item =>
+                                        <NavLink
+                                            key={item.path}
+                                            to={item.path}
+                                            className={({ isActive }) =>
+                                                `${isActive ? 'text-white' : 'text-gray-400'}   text-2xl flex items-center gap-1`
+                                            }
+                                        >
+                                            {({ isActive }) => (
+                                                <>
+                                                    <span>{item.icon}</span>
+                                                    {isActive && <span className='text-xl'>{item.label}</span>}
+                                                </>
+                                            )}
+                                        </NavLink>
+                                    )
+                                }
+                            </div>
+                        </div>
 
-                        <IoIosNotifications className='text-gray-400 text-2xl' />
+                        {/* Notification Menu Section */}
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="">
+                                    <IoIosNotifications className='text-gray-400 text-2xl' />
+                                </div>
+                            </div>
+
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                <li>
+                                    <a className="justify-between">
+                                        Profile <span className="badge">New</span>
+                                    </a>
+                                </li>
+                                <li><a>Settings</a></li>
+                                <li><a>Logout</a></li>
+                            </ul>
+                        </div>
                     </div>
 
                     {/* Profile Dropdown (separate!) */}
+
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">

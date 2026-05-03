@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../layout/RootLayout";
 import Home from "../pages/Home/Home";
-import UpcomingProjects from "../pages/UpcomingProjects/UpcomingProjects";
 import Category from "../pages/Category/Category";
 import Community from "../pages/Community/Community";
 import SearchPage from "../pages/SearchPage/SearchPage";
+import Scheduled from "../pages/Scheduled/Scheduled";
+import AuthLayout from "../layout/AuthLayout";
+import Login from "../pages/Authentication/Login";
 
 
 export const router = createBrowserRouter([
@@ -17,8 +19,8 @@ export const router = createBrowserRouter([
             Component: Home
         },
         {
-          path: '/upcomingProjects',
-          Component: UpcomingProjects
+          path: '/scheduled',
+          Component: Scheduled
         },
         {
           path: '/category',
@@ -34,4 +36,14 @@ export const router = createBrowserRouter([
         }
     ]
   },
+  {
+    path: '/',
+    Component: AuthLayout,
+    children: [
+      {
+        path: 'login',
+        Component: Login
+      }
+    ]
+  }
 ]);
