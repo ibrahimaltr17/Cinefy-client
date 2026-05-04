@@ -1,41 +1,36 @@
 import React from 'react';
-import { CiGlobe } from "react-icons/ci";
-import { CiCalendar } from "react-icons/ci";
+import { CiGlobe, CiCalendar } from "react-icons/ci";
 import { MdGroups } from "react-icons/md";
 import { BiCategory } from "react-icons/bi";
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
 const Dock = () => {
+    const dockItems = [
+        { path: '/', label: 'Explore', icon: CiGlobe },
+        { path: '/scheduled', label: 'Scheduled', icon: CiCalendar },
+        { path: '/category', label: 'Category', icon: MdGroups },
+        { path: '/community', label: 'Community', icon: BiCategory },
+    ];
+
     return (
-        <div className="dock border bg-[#140f1f] text-white">
-            <Link to={'/'}>
-                <button className='flex flex-col items-center dock-active'>
-                    <CiGlobe />
-                    <span className="dock-label">Explore</span>
-                </button>
-            </Link>
+        <div className="dock border bg-[#140f1f] text-gray-400">
+            {dockItems.map((item) => {
+                const Icon = item.icon;
 
-            <Link to={'/scheduled'}>
-                <button className='dock-active flex flex-col items-center'>
-                    <CiCalendar />
-                    <span className="dock-label">Scheduled</span>
-                </button>
-            </Link>
-
-            <Link to={'/category'}>
-                <button className='dock-active flex flex-col items-center'>
-                    <MdGroups />
-                    <span className="dock-label">Community</span>
-                </button>
-            </Link>
-
-            <Link to={'/community'}>
-                <button className='dock-active flex flex-col items-center'>
-                    <BiCategory />
-                    <span className="dock-label">Community</span>
-                </button>
-            </Link>
-
+                return (
+                    <NavLink
+                        key={item.path}
+                        to={item.path}
+                        className={({ isActive }) =>
+                            `flex flex-col items-center ${isActive ? 'text-white' : ''
+                            }`
+                        }
+                    >
+                        <Icon />
+                        <span className="dock-label">{item.label}</span>
+                    </NavLink>
+                );
+            })}
         </div>
     );
 };
