@@ -7,6 +7,7 @@ import SearchPage from "../pages/SearchPage/SearchPage";
 import Scheduled from "../pages/Scheduled/Scheduled";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../pages/Authentication/Login";
+import Register from "../pages/Authentication/Register";
 
 
 export const router = createBrowserRouter([
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: 'login',
         Component: Login
+      },
+      {
+        path: 'register',
+        Component: Register
       }
     ]
   }
