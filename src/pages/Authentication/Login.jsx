@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { data, Link } from "react-router";
+import { Link } from "react-router";
 import GoogleLogin from "./AuthComponents/Shared/GoogleLogin";
 
 const Login = () => {
