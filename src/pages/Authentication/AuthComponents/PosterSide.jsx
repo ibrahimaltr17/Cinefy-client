@@ -23,10 +23,6 @@ const PosterSide = () => {
         "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg", // Fight Club
         "https://image.tmdb.org/t/p/w500/aNtAP8ZzUMdnCPoqYgVOcgI0Eh4.jpg", // The Matrix
         "https://image.tmdb.org/t/p/w500/yF1eOkaYvwiORauRCPWznV9xVvi.jpg", // Harry Potter
-
-        // 🇧🇩 You should replace these with real BD posters later
-        "https://www.imdb.com/title/tt30415138/mediaviewer/rm3701963265/?ref_=ext_shr_lnk",
-        "https://via.placeholder.com/300x450?text=Bangla+Movie+2",
     ];
 
     const column = [...posters, ...posters]; // duplicate for smooth loop

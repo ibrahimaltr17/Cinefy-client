@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { data } from "react-router";
+import { data, Link } from "react-router";
+import GoogleLogin from "./AuthComponents/Shared/GoogleLogin";
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -68,32 +69,12 @@ const Login = () => {
                         Login
                     </button>
 
-                    {/* Divider */}
-                    <div className="flex items-center gap-3 my-6">
-                        <div className="flex-1 h-px bg-white/10"></div>
-                        <span className="text-xs text-gray-500">OR</span>
-                        <div className="flex-1 h-px bg-white/10"></div>
-                    </div>
-
-                    {/* Google Login */}
-                    <button
-                        type="button"
-                        className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-white/10 bg-transparent text-white hover:bg-white/5 transition cursor-pointer"
-                    >
-                        <img
-                            src="https://www.svgrepo.com/show/475656/google-color.svg"
-                            alt="google"
-                            className="w-5 h-5"
-                        />
-                        Continue with Google
-                    </button>
+                    <GoogleLogin/>
 
                     {/* Signup */}
                     <p className="text-center text-xs text-gray-500 mt-6">
                         Don’t have an account?{" "}
-                        <a href="#" className="text-white hover:underline">
-                            Sign up
-                        </a>
+                        <Link className="text-white hover:underline" to='/register'>Sign up</Link>
                     </p>
 
                 </fieldset>

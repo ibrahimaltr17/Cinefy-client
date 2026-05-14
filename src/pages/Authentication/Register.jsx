@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router";
+import GoogleLogin from "./AuthComponents/Shared/GoogleLogin";
 
 const Register = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -115,6 +117,14 @@ const Register = () => {
                     <button className="w-full py-3 rounded-lg bg-white text-black font-medium hover:bg-gray-200 transition cursor-pointer">
                         Register
                     </button>
+
+                    <GoogleLogin/>
+
+                    {/* Signup */}
+                    <p className="text-center text-xs text-gray-500 mt-6">
+                        Already have an account?{" "}
+                        <Link className="text-white hover:underline" to='/login'>Login</Link>
+                    </p>
 
                 </fieldset>
             </form>
