@@ -8,6 +8,7 @@ import Scheduled from "../pages/Scheduled/Scheduled";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
+import MovieDetails from "../pages/MovieDetails/MovieDetails";
 
 
 export const router = createBrowserRouter([
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
         {
           path: '/searchPage',
           Component: SearchPage
+        },
+        {
+          path: '/movieDetails',
+          Component: MovieDetails
         }
     ]
   },
